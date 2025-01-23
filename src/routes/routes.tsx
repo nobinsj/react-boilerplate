@@ -51,14 +51,14 @@ export const routes: RouteObject[] = [
           </ProtectedRoute>
         ),
       },
+      {
+        path: "*",
+        element: (
+          <ProtectedRoute>
+            <components.NoPage />
+          </ProtectedRoute>
+        ),
+      },
     ],
-  },
-  {
-    path: "*",
-    element: (
-      <ProtectedRoute>
-        <components.NoPage />
-      </ProtectedRoute>
-    ),
   },
 ];
