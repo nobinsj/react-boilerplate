@@ -11,16 +11,13 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Menu,
-  MenuItem,
-  Typography,
 } from "@mui/material";
-import PersonIcon from "@mui/icons-material/Person";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import CloseIcon from "@mui/icons-material/Close";
 import { settings, sidebarOptions, sideBarSubOptions } from "./constant";
+import Header from "./Header";
 
 const Layout: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -108,57 +105,14 @@ const Layout: React.FC = () => {
 
   return (
     <div className={styles["layout"]}>
-      <header className={styles["layout-header"]}>
-        <IconButton
-          size="large"
-          edge="end"
-          color="inherit"
-          aria-label="menu"
-          sx={{ ml: 1 }}
-          onClick={toggleDrawer(true)}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Box>
-          <IconButton
-            size="large"
-            edge="end"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 1 }}
-            onClick={handleOpenUserMenu}
-          >
-            <PersonIcon />
-          </IconButton>
-          <Menu
-            sx={{ mt: "46px" }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {settings.map((setting) => (
-              <MenuItem
-                key={setting.label}
-                onClick={() => handleMenuClick(setting)}
-              >
-                <Typography sx={{ textAlign: "center" }}>
-                  {setting.label}
-                </Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
-      </header>
+      <Header
+        toggleDrawer={toggleDrawer(true)}
+        handleCloseUserMenu={handleCloseUserMenu}
+        handleMenuClick={handleMenuClick}
+        handleOpenUserMenu={(e) => handleOpenUserMenu(e)}
+        anchorElUser={anchorElUser}
+        settings={settings}
+      />
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
