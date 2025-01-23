@@ -7,8 +7,8 @@ import { ThemeProvider } from '@mui/material'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
+    {/* <ThemeProvider theme={theme}> */}
       <App />
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
   </StrictMode>,
 )
