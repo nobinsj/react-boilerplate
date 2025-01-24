@@ -18,6 +18,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import CloseIcon from "@mui/icons-material/Close";
 import { settings, sidebarOptions, sideBarSubOptions } from "./constant";
 import Header from "./Header";
+import BreadCrumbs from "../../Components/BreadCrumbs";
 
 const Layout: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -116,6 +117,7 @@ const Layout: React.FC = () => {
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
+      <BreadCrumbs />
       <main className={styles["layout-main"]}>
         <Outlet />
       </main>
