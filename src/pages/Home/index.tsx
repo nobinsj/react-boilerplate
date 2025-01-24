@@ -1,23 +1,36 @@
-import { Button } from "@mui/material";
-import { getTestState } from "./homeSlice";
-import { useDispatch } from "react-redux";
+import { Box, Button } from "@mui/material";
+import { updatePing } from "./action";
+import { useAppDispatch } from "../../redux/hooks";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const handleButtonClick = (value: string) => {
-    dispatch(getTestState(value));
+  const handleButtonClick = () => {
+    dispatch(updatePing());
   };
+  const { t } = useTranslation()
   return (
     <>
       <div>Home </div>
       <Button
         variant="contained"
-        onClick={() => handleButtonClick("Hi Redux is working")}
+        onClick={handleButtonClick}
         color="primary"
       >
-        Contained
+        {t("Username")}
       </Button>
+      <Box
+        sx={{
+          width: 100,
+          height: 100,
+          borderRadius: 1,
+          bgcolor: 'primary.main',
+          '&:hover': {
+            bgcolor: 'primary.dark',
+          },
+        }}
+      />
     </>
   );
 };

@@ -3,7 +3,7 @@ import { getItemFromLocalStorage } from "../helpers/utls";
 import i18n from "../i18n";
 import wordings from "../libs/wordings";
 
-const BASE_URL = `${import.meta.env.VITE_API_URL}/api`
+const BASE_URL = `${import.meta.env.VITE_API_URL}`
 
 type ReqOptions = {
   endpoint: string;
@@ -11,6 +11,7 @@ type ReqOptions = {
   params?: any;
   headers?: HeadersInit;
   credentials: RequestCredentials;
+  type?: string;
 }
 
 type ReqMethods = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
@@ -26,13 +27,12 @@ export function getUrlWithQueryParams(
   }, `${base}?`)
 }
 
-export function getReqUrl({ params, endpoint }: ReqOptions): string {
+export function getReqUrl({ params, endpoint, type = "api" }: ReqOptions): string {
   const base = BASE_URL
-  const url = `${base}/${endpoint}`
+  const url = `${base}/${type}/${endpoint}`
 
   return params ? getUrlWithQueryParams(url, params) : url
 }
-
 
 export function getReqOptions(
   method: ReqMethods,
@@ -110,9 +110,9 @@ function request(method: ReqMethods,
 }
 
 export default {
-  GET: (req: ReqOptions): Promise<Response> => request("GET", req),
-  POST: (req: ReqOptions): Promise<Response> => request("POST", req),
-  PUT: (req: ReqOptions): Promise<Response> => request("PUT", req),
-  DELETE: (req: ReqOptions): Promise<Response> => request("DELETE", req),
-  PATCH: (req: ReqOptions): Promise<Response> => request("PATCH", req),
+  GET: (req: any): Promise<Response> => request("GET", req),
+  POST: (req: any): Promise<Response> => request("POST", req),
+  PUT: (req: any): Promise<Response> => request("PUT", req),
+  DELETE: (req: any): Promise<Response> => request("DELETE", req),
+  PATCH: (req: any): Promise<Response> => request("PATCH", req),
 }

@@ -8,9 +8,10 @@
   --highlight-1: #9e6849;
   --highlight-2: #e0ac5b;
   --highlight-3: #659739;
+  --error: #F44336;
 
-  /* fonts  */
-  --heading: "Poppins", sans-serif;
+    /* fonts  */
+    --heading: "Poppins", sans-serif;
   --paragraph: "Open Sans", sans-serif;
   --default: "Roboto", sans-serif;
 }
