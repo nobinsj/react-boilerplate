@@ -3,7 +3,7 @@ import { getItemFromLocalStorage } from "../helpers/utls";
 import i18n from "../i18n";
 import wordings from "../libs/wordings";
 
-const BASE_URL = `${process.env.VITE_API_URL}/api`
+const BASE_URL = `${import.meta.env.VITE_API_URL}/api`
 
 type ReqOptions = {
   endpoint: string;
