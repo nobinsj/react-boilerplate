@@ -1,4 +1,5 @@
 export default {
   username: "Username",
-  password: "Password"
+  password: "Password",
+  sessionExpiredMsg: "Session expired!, please login again"
 }
