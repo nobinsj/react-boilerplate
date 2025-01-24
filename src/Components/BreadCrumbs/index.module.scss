@@ -1,0 +1,37 @@
+.BreadCrumbs {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  background-color: #fff;
+  box-shadow: var(--tertiary) 0px 0px 5px;
+
+}
+.breadCrumb-link {
+  text-decoration: none;
+  color: var(--highlight-3);
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.breadCrumb-last {
+  color: #212f3d;
+  font-size: 12px !important;
+  text-decoration: none;
+  font-weight: bold !important;
+  cursor: default;
+}
+.breadCrumbs-home {
+  color: var(--highlight-3);
+  font-size: 18px !important;
+  margin-bottom: 2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.breadCrumb-link:hover,
+.breadCrumbs-home:hover {
+  color:#212f3d;
+}
